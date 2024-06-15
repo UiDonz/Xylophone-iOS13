@@ -20,6 +20,12 @@ class ViewController: UIViewController {
 
     @IBAction func keyPressed(_ sender: UIButton) {
         playSound(soundName: sender.currentTitle!)
+        sender.alpha = 0.5 //Reduces button pressed opacity to half
+        //Code executes after delay
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25){
+            //brings user opacity to full
+            sender.alpha = 1.0
+        }
     }
     
     func playSound(soundName : String) {
